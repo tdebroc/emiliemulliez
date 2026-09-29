@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emilie Mulliez — Executive Coach</title>
+  <meta name="description" content="Emilie Mulliez, Executive Coach certifiée et ex-DRH, accompagne dirigeants et cadres dans leur développement, leurs transitions de carrière et la réalisation de leurs ambitions. Paris, France." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Variables ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream:      #F9F8F4;
+      --white:      #FFFFFF;
+      --dark:       #12121F;
+      --navy:       #1E2240;
+      --gold:       #C4975A;
+      --gold-light: #DDB87A;
+      --text:       #1E1E2E;
+      --muted:      #6E6E82;
+      --border:     rgba(30,34,64,0.1);
+      --shadow:     0 20px 60px rgba(18,18,31,0.08);
+      --r:          14px;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.2; }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.73rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 2rem; }
+    section { padding: 7rem 0; }
+
+    /* ── Navigation ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1.6rem 0;
+      transition: all 0.45s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    nav.scrolled {
+      background: rgba(18,18,31,0.93);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      padding: 1rem 0;
+      box-shadow: 0 1px 40px rgba(0,0,0,0.25);
+    }
+
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+    }
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0; right: 0;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .nav-links a:hover { color: #fff; }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    .nav-cta {
+      background: var(--gold) !important;
+      color: #fff !important;
+      padding: 0.6rem 1.5rem;
+      border-radius: 100px;
+      font-weight: 600 !important;
+      transition: background 0.25s, transform 0.25s, box-shadow 0.25s !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover {
+      background: var(--gold-light) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 8px 24px rgba(196,151,90,0.4) !important;
+    }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: all 0.3s; }
+
+    /* ── Mobile Nav ── */
+    .mobile-nav {
+      position: fixed; inset: 0;
+      background: var(--dark);
+      z-index: 999;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.35s;
+    }
+    .mobile-nav.open { opacity: 1; pointer-events: all; }
+
+    .mobile-nav a {
+      color: #fff; text-decoration: none;
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.4s, transform 0.4s;
+    }
+    .mobile-nav.open a { opacity: 1; transform: translateY(0); }
+    .mobile-nav.open a:nth-child(2) { transition-delay: 0.08s; }
+    .mobile-nav.open a:nth-child(3) { transition-delay: 0.14s; }
+    .mobile-nav.open a:nth-child(4) { transition-delay: 0.20s; }
+    .mobile-nav.open a:nth-child(5) { transition-delay: 0.26s; }
+    .mobile-nav.open a:nth-child(6) { transition-delay: 0.32s; }
+    .mobile-nav.open a:nth-child(7) { transition-delay: 0.38s; }
+
+    .mobile-close {
+      position: absolute; top: 1.5rem; right: 2rem;
+      color: #fff; font-size: 1.5rem; cursor: pointer;
+      background: none; border: none; font-family: inherit;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex; align-items: center;
+      overflow: hidden; padding: 0;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(140deg, #0A0B14 0%, #151A30 45%, #1E2545 80%, #100E1E 100%);
+    }
+
+    .hero-bg::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 25% 65%, rgba(196,151,90,0.10) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 70% at 80% 25%, rgba(90,110,220,0.07) 0%, transparent 65%);
+      animation: meshPulse 14s ease-in-out infinite alternate;
+    }
+
+    @keyframes meshPulse {
+      0%   { transform: scale(1) translate(0,0); opacity: 1; }
+      100% { transform: scale(1.06) translate(2%, 4%); opacity: 0.8; }
+    }
+
+    .orb {
+      position: absolute; border-radius: 50%;
+      filter: blur(80px); opacity: 0.12;
+      animation: orbFloat linear infinite;
+    }
+    .orb-1 { width: 600px; height: 600px; background: var(--gold); top: -150px; right: -150px; animation-duration: 22s; }
+    .orb-2 { width: 350px; height: 350px; background: #5060CC; bottom: 5%; left: -100px; animation-duration: 28s; animation-delay: -9s; }
+    .orb-3 { width: 250px; height: 250px; background: var(--gold-light); top: 45%; right: 18%; animation-duration: 20s; animation-delay: -5s; opacity: 0.07; }
+
+    @keyframes orbFloat {
+      0%   { transform: translate(0,0) rotate(0deg); }
+      33%  { transform: translate(25px,-25px) rotate(120deg); }
+      66%  { transform: translate(-18px,18px) rotate(240deg); }
+      100% { transform: translate(0,0) rotate(360deg); }
+    }
+
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 880px; }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.8rem;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 2rem;
+      opacity: 0; transform: translateY(20px);
+      animation: heroFade 0.8s cubic-bezier(0.16,1,0.3,1) 0.3s forwards;
+    }
+
+    .hero-eyebrow::before {
+      content: ''; display: block;
+      width: 36px; height: 1px; background: var(--gold);
+    }
+
+    .hero-title {
+      font-size: clamp(2.8rem, 6.5vw, 5.2rem);
+      font-weight: 700; color: #fff; line-height: 1.07;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-title .line { display: block; overflow: hidden; }
+    .hero-title .line span {
+      display: block; opacity: 0; transform: translateY(105%);
+    }
+    .hero-title .line:nth-child(1) span { animation: slideUp 0.95s cubic-bezier(0.16,1,0.3,1) 0.5s forwards; }
+    .hero-title .line:nth-child(2) span { animation: slideUp 0.95s cubic-bezier(0.16,1,0.3,1) 0.65s forwards; }
+    .hero-title .line:nth-child(3) span { animation: slideUp 0.95s cubic-bezier(0.16,1,0.3,1) 0.8s forwards; }
+
+    .hero-title em { font-style: italic; color: var(--gold); }
+
+    @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
+    @keyframes heroFade { to { opacity: 1; transform: translateY(0); } }
+
+    .hero-subtitle {
+      font-size: 1.15rem; font-weight: 300;
+      color: rgba(255,255,255,0.62); max-width: 540px;
+      line-height: 1.75; margin-bottom: 2.5rem;
+      opacity: 0; transform: translateY(20px);
+      animation: heroFade 0.8s cubic-bezier(0.16,1,0.3,1) 1.1s forwards;
+    }
+
+    .hero-actions {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      opacity: 0; transform: translateY(20px);
+      animation: heroFade 0.8s cubic-bezier(0.16,1,0.3,1) 1.3s forwards;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.9rem 2rem; border-radius: 100px;
+      font-size: 0.9rem; font-weight: 600;
+      text-decoration: none; letter-spacing: 0.02em;
+      transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+      cursor: pointer; border: none; font-family: inherit;
+    }
+
+    .btn-primary { background: var(--gold); color: #fff; }
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-3px);
+      box-shadow: 0 14px 36px rgba(196,151,90,0.38);
+    }
+
+    .btn-outline { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.28); }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.55);
+      transform: translateY(-2px);
+    }
+
+    /* Hero stat strip */
+    .hero-stats {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 1;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .stats-inner {
+      display: flex; align-items: stretch;
+      opacity: 0;
+      animation: heroFade 0.8s cubic-bezier(0.16,1,0.3,1) 1.55s forwards;
+    }
+
+    .stat-strip {
+      flex: 1; padding: 1.8rem 2rem;
+      border-right: 1px solid rgba(255,255,255,0.07);
+      display: flex; align-items: center; gap: 1.2rem;
+    }
+    .stat-strip:last-child { border-right: none; }
+
+    .stat-strip-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--gold); line-height: 1; flex-shrink: 0;
+    }
+
+    .stat-strip-text { font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.4; }
+
+    /* Scroll hint */
+    .scroll-hint {
+      position: absolute; bottom: 8rem; right: 2.5rem; z-index: 2;
+      display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+      color: rgba(255,255,255,0.35); font-size: 0.68rem; letter-spacing: 0.14em;
+      text-transform: uppercase; writing-mode: vertical-rl;
+      opacity: 0;
+      animation: heroFade 0.8s 1.9s forwards;
+    }
+
+    .scroll-line {
+      width: 1px; height: 56px;
+      background: linear-gradient(to bottom, transparent, var(--gold));
+      animation: scrollPulse 2.2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%   { transform: scaleY(0); transform-origin: top; }
+      50%  { transform: scaleY(1); transform-origin: top; }
+      51%  { transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--white); }
+
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+    }
+
+    .about-card {
+      background: linear-gradient(145deg, #1A1E35, #0E0F1C);
+      border-radius: 24px; padding: 3rem;
+      color: #fff; position: relative; overflow: hidden;
+    }
+
+    .about-card::before {
+      content: ''; position: absolute;
+      top: -80px; right: -80px;
+      width: 260px; height: 260px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,151,90,0.18), transparent 70%);
+    }
+
+    .about-card::after {
+      content: ''; position: absolute;
+      bottom: -60px; left: -60px;
+      width: 200px; height: 200px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(80,100,200,0.10), transparent 70%);
+    }
+
+    .about-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; font-style: italic;
+      line-height: 1.6; color: rgba(255,255,255,0.9);
+      margin-bottom: 2.5rem; position: relative; z-index: 1;
+    }
+
+    .about-quote::before {
+      content: '"';
+      display: block; font-size: 4.5rem;
+      color: var(--gold); line-height: 1;
+      margin-bottom: 0.25rem; font-style: normal;
+    }
+
+    .about-card-stats {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1.25rem; position: relative; z-index: 1;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 2rem;
+    }
+
+    .cstat { text-align: center; }
+    .cstat-num {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 700;
+      color: var(--gold); line-height: 1; margin-bottom: 0.3rem;
+    }
+    .cstat-label { font-size: 0.78rem; color: rgba(255,255,255,0.5); }
+
+    .about-text h2 {
+      font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+      color: var(--dark); margin-bottom: 1.5rem;
+    }
+
+    .about-text p {
+      color: var(--muted); line-height: 1.85;
+      margin-bottom: 1.1rem; font-size: 1.02rem;
+    }
+
+    .about-tags { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1.75rem; }
+
+    .tag {
+      padding: 0.38rem 1rem;
+      border: 1px solid var(--border); border-radius: 100px;
+      font-size: 0.8rem; font-weight: 500;
+      color: var(--navy); background: var(--cream);
+      transition: all 0.25s;
+    }
+    .tag:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+    /* ── SERVICES ── */
+    #services { background: var(--cream); }
+
+    .section-header { text-align: center; max-width: 580px; margin: 0 auto 4rem; }
+    .section-header h2 {
+      font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+      color: var(--dark); margin-bottom: 1rem;
+    }
+    .section-header p { color: var(--muted); font-size: 1.05rem; line-height: 1.7; }
+
+    .services-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--white); border-radius: var(--r);
+      padding: 2.5rem; border: 1px solid var(--border);
+      transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+      position: relative; overflow: hidden;
+    }
+
+    .service-card::after {
+      content: ''; position: absolute;
+      bottom: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      transform: scaleX(0);
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+      transform-origin: left;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 24px 64px rgba(18,18,31,0.1);
+      border-color: transparent;
+    }
+    .service-card:hover::after { transform: scaleX(1); }
+
+    .service-icon {
+      width: 58px; height: 58px; border-radius: 15px;
+      background: linear-gradient(135deg, var(--navy), var(--dark));
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.5rem; font-size: 1.5rem;
+    }
+
+    .service-card h3 { font-size: 1.25rem; color: var(--dark); margin-bottom: 0.75rem; }
+    .service-card p { color: var(--muted); font-size: 0.95rem; line-height: 1.75; margin-bottom: 1.5rem; }
+
+    .service-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      color: var(--gold); font-size: 0.875rem; font-weight: 600;
+      text-decoration: none; letter-spacing: 0.02em;
+      transition: gap 0.25s;
+    }
+    .service-link:hover { gap: 0.75rem; }
+
+    /* ── SPECIALIZATIONS ── */
+    #specialisations {
+      background: linear-gradient(145deg, #0E0F1D 0%, #1A2040 50%, #1C1830 100%);
+    }
+
+    #specialisations .section-header h2 { color: #fff; }
+    #specialisations .section-header p { color: rgba(255,255,255,0.55); }
+
+    .spec-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem;
+    }
+
+    .spec-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 1.5rem 1.75rem;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--r);
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(8px);
+      transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .spec-item:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(196,151,90,0.28);
+      transform: translateY(-4px);
+    }
+
+    .spec-bullet {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--gold); margin-top: 8px; flex-shrink: 0;
+    }
+
+    .spec-item p { color: rgba(255,255,255,0.78); font-size: 0.95rem; line-height: 1.55; }
+
+    /* ── PARCOURS ── */
+    #parcours { background: var(--white); }
+
+    .parcours-header {
+      margin-bottom: 3.5rem;
+    }
+
+    .timeline-two-col {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+    }
+
+    .timeline-col-label {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem; font-weight: 600;
+      color: var(--dark); margin-bottom: 2rem;
+    }
+
+    .timeline { position: relative; padding-left: 1.5rem; }
+
+    .timeline::before {
+      content: ''; position: absolute;
+      left: 0; top: 8px; bottom: 0; width: 1px;
+      background: linear-gradient(to bottom, var(--gold) 0%, rgba(196,151,90,0.1) 100%);
+    }
+
+    .timeline-item {
+      position: relative; padding-bottom: 2.25rem; padding-left: 2rem;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+
+    .timeline-dot {
+      position: absolute; left: -1.95rem; top: 5px;
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid var(--white);
+      box-shadow: 0 0 0 3px rgba(196,151,90,0.22);
+    }
+
+    .timeline-date {
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.3rem;
+    }
+
+    .timeline-title {
+      font-size: 1rem; font-weight: 600;
+      color: var(--dark); margin-bottom: 0.2rem;
+    }
+
+    .timeline-org { font-size: 0.88rem; color: var(--muted); }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--cream); }
+
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: start;
+    }
+
+    .contact-text h2 {
+      font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+      color: var(--dark); margin-bottom: 1rem;
+    }
+    .contact-text p { color: var(--muted); line-height: 1.8; margin-bottom: 2rem; }
+
+    .contact-links { display: flex; flex-direction: column; gap: 0.9rem; }
+
+    .contact-link {
+      display: flex; align-items: center; gap: 1rem;
+      text-decoration: none; color: var(--text);
+      padding: 1.1rem 1.4rem;
+      background: var(--white); border-radius: var(--r);
+      border: 1px solid var(--border);
+      transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+      font-size: 0.94rem;
+    }
+
+    .contact-link:hover {
+      border-color: var(--gold);
+      transform: translateX(5px);
+      box-shadow: -4px 0 0 var(--gold);
+    }
+
+    .cl-icon {
+      width: 42px; height: 42px; border-radius: 11px;
+      background: linear-gradient(135deg, var(--navy), var(--dark));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
+    }
+
+    .cl-texts { display: flex; flex-direction: column; }
+    .cl-label {
+      font-size: 0.72rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.09em; margin-bottom: 0.1rem;
+    }
+    .cl-val { font-weight: 500; color: var(--dark); }
+
+    .contact-form-wrap {
+      background: var(--white); border-radius: 22px;
+      padding: 2.5rem; border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-form-wrap h3 {
+      font-size: 1.4rem; color: var(--dark); margin-bottom: 1.6rem;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .form-group { margin-bottom: 1.2rem; }
+
+    .form-group label {
+      display: block; font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.06em; color: var(--muted);
+      text-transform: uppercase; margin-bottom: 0.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%; padding: 0.85rem 1.1rem;
+      border: 1.5px solid var(--border); border-radius: 9px;
+      font-family: 'Inter', sans-serif; font-size: 0.93rem;
+      color: var(--text); background: var(--cream);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(196,151,90,0.13);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 110px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.45);
+      padding: 2.5rem 0;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { color: var(--gold-light); }
+
+    /* ── SCROLL ANIMATIONS ── */
+    .reveal, .reveal-l, .reveal-r {
+      transition: opacity 0.75s cubic-bezier(0.16,1,0.3,1), transform 0.75s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .reveal      { opacity: 0; transform: translateY(34px); }
+    .reveal-l    { opacity: 0; transform: translateX(-44px); }
+    .reveal-r    { opacity: 0; transform: translateX(44px); }
+
+    .reveal.vis, .reveal-l.vis, .reveal-r.vis {
+      opacity: 1; transform: translate(0,0);
+    }
+
+    [data-d="1"] { transition-delay: 0.1s; }
+    [data-d="2"] { transition-delay: 0.2s; }
+    [data-d="3"] { transition-delay: 0.3s; }
+    [data-d="4"] { transition-delay: 0.4s; }
+    [data-d="5"] { transition-delay: 0.5s; }
+    [data-d="6"] { transition-delay: 0.6s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .services-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+      .spec-grid { grid-template-columns: 1fr 1fr; }
+      .timeline-two-col { grid-template-columns: 1fr; gap: 3rem; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .stat-strip-num { font-size: 1.8rem; }
+    }
+
+    @media (max-width: 640px) {
+      section { padding: 4rem 0; }
+      .spec-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-title { font-size: 2.4rem; }
+      .stats-inner { flex-direction: column; }
+      .stat-strip { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); padding: 1.2rem 1.5rem; }
+      .stat-strip:last-child { border-bottom: none; }
+      .scroll-hint { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" onclick="closeMobileNav()">✕</button>
+  <a href="#about"          onclick="closeMobileNav()">À Propos</a>
+  <a href="#services"       onclick="closeMobileNav()">Services</a>
+  <a href="#specialisations" onclick="closeMobileNav()">Spécialisations</a>
+  <a href="#parcours"       onclick="closeMobileNav()">Parcours</a>
+  <a href="#contact"        onclick="closeMobileNav()">Contact</a>
+  <a href="mailto:emiliemulliezduverne@gmail.com" style="font-size:1.2rem; color:var(--gold);">✉ Prendre rendez-vous</a>
+</div>
+
+<!-- Navigation -->
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="#hero" class="nav-logo">Emilie <span>Mulliez</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">À Propos</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#specialisations">Spécialisations</a></li>
+      <li><a href="#parcours">Parcours</a></li>
+      <li><a href="#contact" class="nav-cta">Prendre RDV</a></li>
+    </ul>
+    <div class="hamburger" onclick="openMobileNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="hero-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="hero-grid"></div>
+  </div>
+
+  <div class="container" style="padding-top:6rem; padding-bottom:10rem;">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Coach Professionnelle Certifiée &nbsp;·&nbsp; Paris, France</div>
+      <h1 class="hero-title">
+        <span class="line"><span>Révélez votre</span></span>
+        <span class="line"><span>potentiel, <em>transformez</em></span></span>
+        <span class="line"><span>votre avenir.</span></span>
+      </h1>
+      <p class="hero-subtitle">
+        Executive Coach certifiée et ex-DRH, j'accompagne dirigeants et cadres dans leur développement personnel, leurs transitions de carrière et la réalisation de leurs ambitions.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Séance découverte gratuite &rarr;</a>
+        <a href="#services" class="btn btn-outline">Découvrir mes services</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="container">
+      <div class="stats-inner">
+        <div class="stat-strip">
+          <div class="stat-strip-num">15+</div>
+          <div class="stat-strip-text">ans d'expérience<br>en ressources humaines</div>
+        </div>
+        <div class="stat-strip">
+          <div class="stat-strip-num">3</div>
+          <div class="stat-strip-text">langues maîtrisées<br>Français · Anglais · Espagnol</div>
+        </div>
+        <div class="stat-strip">
+          <div class="stat-strip-num">≪ ≫</div>
+          <div class="stat-strip-text">nationalités<br>accompagnées</div>
+        </div>
+        <div class="stat-strip">
+          <div class="stat-strip-num">ESCP</div>
+          <div class="stat-strip-text">Grande École &amp;<br>Coach MBTI® certifiée</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    Défiler
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+
+      <div class="about-card reveal-l">
+        <div class="about-quote">
+          Mon approche combine l'écoute empathique aux techniques de coaching les plus avancées, pour favoriser votre croissance personnelle et votre authenticité.
+        </div>
+        <div class="about-card-stats">
+          <div class="cstat">
+            <span class="cstat-num">15+</span>
+            <span class="cstat-label">ans en RH</span>
+          </div>
+          <div class="cstat">
+            <span class="cstat-num">3</span>
+            <span class="cstat-label">langues</span>
+          </div>
+          <div class="cstat">
+            <span class="cstat-num">ESCP</span>
+            <span class="cstat-label">Grande École</span>
+          </div>
+          <div class="cstat">
+            <span class="cstat-num">MBTI</span>
+            <span class="cstat-label">Certifiée</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-text reveal-r">
+        <span class="section-tag">À Propos</span>
+        <h2>Une approche <em>holistique</em><br>du coaching</h2>
+        <p>
+          Passionnée par le développement des talents et la transformation personnelle, je suis coach professionnelle certifiée, spécialisée dans l'accompagnement humain.
+        </p>
+        <p>
+          Forte d'une carrière de plus de 15 ans dans les ressources humaines — notamment comme Directrice RH chez Relais &amp; Châteaux — j'ai acquis une compréhension approfondie des enjeux de leadership, de gestion du changement et de transition de carrière.
+        </p>
+        <p>
+          Mon expérience internationale et ma maîtrise du français, de l'anglais et de l'espagnol me permettent d'accompagner des professionnels de toutes nationalités, avec empathie et efficacité.
+        </p>
+        <div class="about-tags">
+          <span class="tag">Coaching certifié</span>
+          <span class="tag">MBTI®</span>
+          <span class="tag">Leadership</span>
+          <span class="tag">Transition de carrière</span>
+          <span class="tag">Trilingue</span>
+          <span class="tag">ESCP Alumni</span>
+          <span class="tag">Expatriation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICES ═══ -->
+<section id="services">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">Mes Services</span>
+      <h2>Un accompagnement sur mesure</h2>
+      <p>Trois types d'accompagnements adaptés à votre situation et à vos objectifs, en présentiel ou à distance, en français et en anglais.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card reveal" data-d="1">
+        <div class="service-icon">🎯</div>
+        <h3>Coaching Exécutif</h3>
+        <p>Développez votre leadership, affinez votre vision stratégique et gagnez en clarté dans un cadre strictement confidentiel. Un accompagnement personnalisé pour dirigeants et managers.</p>
+        <a href="#contact" class="service-link">Prendre rendez-vous &rarr;</a>
+      </div>
+
+      <div class="service-card reveal" data-d="2">
+        <div class="service-icon">🚀</div>
+        <h3>Outplacement &amp; Transition</h3>
+        <p>Naviguez les transitions de carrière avec confiance : clarification de projet, valorisation de votre profil, stratégie réseau et préparation aux entretiens. En français et en anglais.</p>
+        <a href="#contact" class="service-link">Prendre rendez-vous &rarr;</a>
+      </div>
+
+      <div class="service-card reveal" data-d="3">
+        <div class="service-icon">💡</div>
+        <h3>Bilan de Compétences</h3>
+        <p>Découvrez vos forces, vos valeurs et vos aspirations profondes pour construire un projet professionnel aligné avec votre identité authentique et vos ambitions.</p>
+        <a href="#contact" class="service-link">Prendre rendez-vous &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SPECIALIZATIONS ═══ -->
+<section id="specialisations">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">Spécialisations</span>
+      <h2 style="color:#fff;">Des domaines d'expertise variés</h2>
+      <p>Mon accompagnement couvre l'ensemble des enjeux liés à la vie professionnelle et à l'épanouissement personnel.</p>
+    </div>
+
+    <div class="spec-grid">
+      <div class="spec-item reveal" data-d="1">
+        <div class="spec-bullet"></div>
+        <p>Coaching exécutif pour le développement du leadership</p>
+      </div>
+      <div class="spec-item reveal" data-d="2">
+        <div class="spec-bullet"></div>
+        <p>Gestion du changement et transition de carrière</p>
+      </div>
+      <div class="spec-item reveal" data-d="3">
+        <div class="spec-bullet"></div>
+        <p>Identification d'un projet dans le cadre d'une expatriation</p>
+      </div>
+      <div class="spec-item reveal" data-d="4">
+        <div class="spec-bullet"></div>
+        <p>Équilibre vie professionnelle — vie personnelle</p>
+      </div>
+      <div class="spec-item reveal" data-d="5">
+        <div class="spec-bullet"></div>
+        <p>Gestion du stress et de l'anxiété professionnelle</p>
+      </div>
+      <div class="spec-item reveal" data-d="6">
+        <div class="spec-bullet"></div>
+        <p>Répondre à une envie de changement profond</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PARCOURS ═══ -->
+<section id="parcours">
+  <div class="container">
+    <div class="parcours-header reveal">
+      <span class="section-tag">Parcours</span>
+      <h2 style="font-size:clamp(1.9rem,3.2vw,2.6rem); color:var(--dark);">Expérience &amp; Formation</h2>
+    </div>
+
+    <div class="timeline-two-col">
+
+      <div class="reveal-l">
+        <p class="timeline-col-label">Expérience professionnelle</p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2023 — Présent</div>
+            <div class="timeline-title">Coach Professionnelle Certifiée</div>
+            <div class="timeline-org">Pratique indépendante</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2024 — Présent</div>
+            <div class="timeline-title">Consultante</div>
+            <div class="timeline-org">Association ACTE · Accompagnement à la recherche d'emploi · Paris</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2018 — 2020</div>
+            <div class="timeline-title">Responsable Ressources Humaines</div>
+            <div class="timeline-org">Espérance Banlieues · Paris</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2011 — 2018</div>
+            <div class="timeline-title">Directrice des Ressources Humaines</div>
+            <div class="timeline-org">Relais &amp; Châteaux · Paris &nbsp;(7 ans 8 mois)</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2004 — 2007</div>
+            <div class="timeline-title">Resp. Rémunérations &amp; Avantages Sociaux</div>
+            <div class="timeline-org">Redcats · Paris</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2001 — 2004</div>
+            <div class="timeline-title">Resp. Rémunérations &amp; Avantages Sociaux</div>
+            <div class="timeline-org">Alstom · Paris</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal-r">
+        <p class="timeline-col-label">Formation &amp; Certifications</p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2023</div>
+            <div class="timeline-title">Practitioner Coach Diploma</div>
+            <div class="timeline-org">Noble Manhattan Coaching Europe · Life &amp; Business Coaching</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">Certifiée</div>
+            <div class="timeline-title">Certification MBTI®</div>
+            <div class="timeline-org">Myers-Briggs Type Indicator</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">1997 — 2001</div>
+            <div class="timeline-title">Diplôme Grande École</div>
+            <div class="timeline-org">ESCP · Paris</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">1995 — 1997</div>
+            <div class="timeline-title">Hypokhâgne &amp; Khâgne (CPGE)</div>
+            <div class="timeline-org">ENC Lycée Blomet · Paris</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">1986 — 1995</div>
+            <div class="timeline-title">Baccalauréat Option Internationale (OIB)</div>
+            <div class="timeline-org">École Jeannine Manuel · Paris</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+
+      <div class="reveal-l">
+        <span class="section-tag">Contact</span>
+        <h2>Commençons votre <em>transformation</em></h2>
+        <p>
+          Je propose une séance découverte gratuite de 30 minutes pour faire connaissance et explorer ensemble comment je peux vous accompagner vers vos objectifs.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:emiliemulliezduverne@gmail.com" class="contact-link">
+            <div class="cl-icon">✉️</div>
+            <div class="cl-texts">
+              <span class="cl-label">Email</span>
+              <span class="cl-val">emiliemulliezduverne@gmail.com</span>
+            </div>
+          </a>
+          <a href="https://linkedin.com/in/emilie-mulliez" target="_blank" rel="noopener" class="contact-link">
+            <div class="cl-icon">💼</div>
+            <div class="cl-texts">
+              <span class="cl-label">LinkedIn</span>
+              <span class="cl-val">linkedin.com/in/emilie-mulliez</span>
+            </div>
+          </a>
+          <a href="https://www.emiliemulliez.com" target="_blank" rel="noopener" class="contact-link">
+            <div class="cl-icon">🌐</div>
+            <div class="cl-texts">
+              <span class="cl-label">Site officiel</span>
+              <span class="cl-val">www.emiliemulliez.com</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap reveal-r">
+        <h3>Prendre rendez-vous</h3>
+        <form id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Prénom</label>
+              <input type="text" placeholder="Marie" required />
+            </div>
+            <div class="form-group">
+              <label>Nom</label>
+              <input type="text" placeholder="Dupont" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="marie@exemple.com" required />
+          </div>
+          <div class="form-group">
+            <label>Type d'accompagnement</label>
+            <select>
+              <option>Coaching Exécutif</option>
+              <option>Outplacement &amp; Transition de carrière</option>
+              <option>Bilan de Compétences</option>
+              <option>Séance découverte gratuite</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea placeholder="Décrivez brièvement votre situation et ce que vous souhaitez explorer..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" id="submitBtn" style="width:100%; justify-content:center; font-size:0.95rem;">
+            Envoyer ma demande &rarr;
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="container">
+    <p style="margin-bottom:0.6rem;">
+      <strong style="color:#fff; font-family:'Playfair Display',serif; font-size:1.1rem;">Emilie Mulliez</strong>
+      &nbsp;·&nbsp; Executive Coach &nbsp;·&nbsp; Paris, Île-de-France, France
+    </p>
+    <p>
+      <a href="mailto:emiliemulliezduverne@gmail.com">emiliemulliezduverne@gmail.com</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://linkedin.com/in/emilie-mulliez" target="_blank" rel="noopener">LinkedIn</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://www.emiliemulliez.com" target="_blank" rel="noopener">emiliemulliez.com</a>
+    </p>
+    <p style="margin-top:1.2rem; font-size:0.78rem;">&copy; 2024 Emilie Mulliez. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<script>
+  /* ── Nav scroll ── */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  /* ── Mobile nav ── */
+  function openMobileNav() {
+    document.getElementById('mobileNav').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMobileNav() {
+    document.getElementById('mobileNav').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  /* ── Scroll reveal ── */
+  const revealEls = document.querySelectorAll('.reveal, .reveal-l, .reveal-r');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('vis');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => io.observe(el));
+
+  /* ── Smooth scroll ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  /* ── Form submit ── */
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = '✓ Demande envoyée !';
+    btn.style.background = '#3DA05A';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = 'Envoyer ma demande →';
+      btn.style.background = '';
+      btn.disabled = false;
+      e.target.reset();
+    }, 4000);
+  }
+</script>
+</body>
+</html>
