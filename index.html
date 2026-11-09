@@ -1041,20 +1041,20 @@
           <div class="form-row">
             <div class="form-group">
               <label>Prénom</label>
-              <input type="text" placeholder="Marie" required />
+              <input type="text" name="first_name" placeholder="Marie" required />
             </div>
             <div class="form-group">
               <label>Nom</label>
-              <input type="text" placeholder="Dupont" required />
+              <input type="text" name="last_name" placeholder="Dupont" required />
             </div>
           </div>
           <div class="form-group">
             <label>Email</label>
-            <input type="email" placeholder="marie@exemple.com" required />
+            <input type="email" name="reply_to" placeholder="marie@exemple.com" required />
           </div>
           <div class="form-group">
             <label>Type d'accompagnement</label>
-            <select>
+            <select name="service_type">
               <option>Coaching Exécutif</option>
               <option>Outplacement &amp; Transition de carrière</option>
               <option>Bilan de Compétences</option>
@@ -1064,7 +1064,7 @@
           </div>
           <div class="form-group">
             <label>Message</label>
-            <textarea placeholder="Décrivez brièvement votre situation et ce que vous souhaitez explorer..."></textarea>
+            <textarea name="message" placeholder="Décrivez brièvement votre situation et ce que vous souhaitez explorer..."></textarea>
           </div>
           <button type="submit" class="btn btn-primary" id="submitBtn" style="width:100%; justify-content:center; font-size:0.95rem;">
             Envoyer ma demande &rarr;
@@ -1134,19 +1134,26 @@
     });
   });
 
-  /* ── Form submit ── */
+  /* ── Form submit (mailto) ── */
   function handleSubmit(e) {
     e.preventDefault();
-    const btn = document.getElementById('submitBtn');
-    btn.textContent = '✓ Demande envoyée !';
-    btn.style.background = '#3DA05A';
-    btn.disabled = true;
-    setTimeout(() => {
-      btn.textContent = 'Envoyer ma demande →';
-      btn.style.background = '';
-      btn.disabled = false;
-      e.target.reset();
-    }, 4000);
+    const form = e.target;
+    const data = new FormData(form);
+    const firstName = data.get('first_name') || '';
+    const lastName = data.get('last_name') || '';
+    const email = data.get('reply_to') || '';
+    const serviceType = data.get('service_type') || '';
+    const message = data.get('message') || '';
+
+    const subject = `Demande de rendez-vous – ${serviceType}`;
+    const body =
+      `Nom : ${firstName} ${lastName}\n` +
+      `Email : ${email}\n` +
+      `Type d'accompagnement : ${serviceType}\n\n` +
+      `Message :\n${message}`;
+
+    const mailtoUrl = `mailto:emiliemulliezduverne@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoUrl;
   }
 </script>
 </body>
